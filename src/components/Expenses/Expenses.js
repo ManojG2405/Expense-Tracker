@@ -7,35 +7,31 @@ import "./Expenses.css";
 // Problematic file from lecture 65 - 68
 
 const Expenses = (props) => {
-
-
   const [filteredYear, setFilteredYear] = useState("2020");
 
   const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
   };
-);
 
-  (
-    <div>
-      <Card className="expenses">
-        <ExpensesFilter
-          selected={filteredYear}
-          onChangeFilter={filterChangeHandler}
+return (
+
+  <div>
+    <Card className="expenses">
+      <ExpensesFilter
+        selected={filteredYear}
+        onChangeFilter={filterChangeHandler}
         />
-        {filteredExpenses.map((expense) => 
-        (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          /> )
-        )
-        };
-
-      </Card>
-    </div>
+        {props.items.map((expense => 
+        <ExpenseItem 
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          />
+          ))}
+     
+    </Card>
+  </div>
+  
   );
 };
 
